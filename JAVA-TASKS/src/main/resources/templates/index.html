@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/allFootBaller/add">Добавить</a>
+   <div th:each="people:${allPeople}">
+       <p th:text="${people.getFirstName} + ' ' + ${people.getLastName}"></p>
+       <a th:href = "@{/showPeople/{id}(id=${people.getId()})}"> Личный кабинет</a>
+   </div>
+</body>
+</html>
