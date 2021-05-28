@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text = "${person.getFirstName}+ ' ' + ${person.getLastName}"></p>
+<form th:action = "@{/showPeoplee/{id}(id=${person.getId()})}" method="post">
+    <input type="submit" value="Сортировка">
+</form>
+<div>Мои собачки</div>
+<div><a th:href = "${url}">Добавить Собачку</a></div>
+<div th:each="dog:${person.getDogs}">
+    <p th:text = "${dog.getName}+ ' ' + ${dog.getBreed}"></p>
+</div>
+<form method="post" th:action = "@{/showPeople/{id}(id=${person.getId()})}">
+    <input type="submit" value="Удалить пользователя">
+</form>
+</body>
+</html>
